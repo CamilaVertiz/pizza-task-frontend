@@ -5,7 +5,7 @@ import Cart from '../Cart/Cart'
 import axios from 'axios'
 
 const Header = () => {
-    const { state, setCurrency, handleSearch, total, quantity } = useContext(Context)
+    const { state, setCurrency, total, quantity } = useContext(Context)
 
     const changeCurrency = async () => {
         if(state.currency.type === 'usd'){
@@ -24,7 +24,7 @@ const Header = () => {
             <header className="header-fixed">
                 <div className="header-limiter">
                     <a href="/"><span className="logo"></span> <h1 className="title">Pizza Task</h1></a> 
-                    {state.header ? 
+                   
                     <nav>
                         <h1>
                             <span className="currency-exchange" onClick={changeCurrency}></span> 
@@ -41,7 +41,6 @@ const Header = () => {
                             </span>
                         </h1>
                     </nav>
-                    : '' }
                 </div>
             </header>
 

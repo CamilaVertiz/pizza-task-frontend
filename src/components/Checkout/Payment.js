@@ -47,14 +47,13 @@ const Payment = () => {
                 }
             } 
             const orderRes = await axios(`${url}/api/order`, config)          
-
             if(orderRes.data.status === 'false'){    
               setError(orderRes.data.status)     
             }else{                      
               setCart([])
               setSuccess(true) 
-              setLoading(false)
             }
+            setLoading(false)
         } catch(err){
            console.log(err)
         }

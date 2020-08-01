@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component Snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="header"
+  >
+    <header
+      className="header-fixed"
+    >
+      <div
+        className="header-limiter"
+      >
+        <a
+          href="/"
+        >
+          <span
+            className="logo"
+          />
+           
+          <h1
+            className="title"
+          >
+            Pizza Task
+          </h1>
+        </a>
+        <nav>
+          <h1>
+            <span
+              className="currency-exchange"
+              onClick={[Function]}
+            />
+            <span
+              className="total"
+            >
+              <i
+                aria-hidden="true"
+                className="fa fa-usd"
+              />
+              0.00
+            </span>
+            <span>
+              <span
+                className="dropdown"
+              >
+                <i
+                  className="fa fa-shopping-cart"
+                />
+                <span
+                  className="cart-count"
+                >
+                  0
+                </span>
+                <div
+                  className="dropdown-content hidden"
+                >
+                  <ul
+                    className="list-unstyled"
+                  >
+                    <li
+                      className="text-right"
+                    >
+                      <small>
+                        Shipping 
+                        <i
+                          aria-hidden="true"
+                          className="fa fa-usd"
+                        />
+                         
+                        0
+                         
+                      </small>
+                    </li>
+                    <li
+                      className="text-right"
+                    >
+                      <span
+                        className="font-weight-bold"
+                      >
+                        Total 
+                        <i
+                          aria-hidden="true"
+                          className="fa fa-usd"
+                        />
+                        0.00
+                         
+                      </span>
+                    </li>
+                  </ul>
+                  <a
+                    className="link"
+                    href="/checkout"
+                    onClick={[Function]}
+                  >
+                    checkout  
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-arrow-right"
+                    />
+                  </a>
+                </div>
+              </span>
+            </span>
+          </h1>
+        </nav>
+      </div>
+    </header>
+    <div
+      className="header-fixed-placeholder"
+    />
+  </div>
+  <div
+    className="container mt-5"
+  >
+    <div
+      className="row"
+    />
+  </div>
+</div>
+`;

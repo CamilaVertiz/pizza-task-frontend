@@ -1,0 +1,402 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(0deg, rgb(0 0 0 / 60%), rgb(0 0 0 / 70%)), url('./utils/img/bg-pizza.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body.fixed .header-fixed {
+	padding: 10px 40px;
+	height: 50px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+body.fixed .header-fixed-placeholder {
+	display: block;
+}
+
+body.fixed .header-fixed .header-limiter h1 {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+body.fixed .header-fixed .header-limiter nav {
+	line-height: 28px;
+	font-size: 13px;
+}
+
+/******************************************************************/
+/***************************** Header *****************************/
+/******************************************************************/
+
+.header-fixed {
+	background-color:#E50E0E;
+	padding: 20px 40px;
+	height: 80px;
+	color: #ffffff;
+	box-sizing: border-box;
+	top:-100px;
+
+	-webkit-transition:top 0.3s;
+	transition:top 0.3s;
+}
+
+.header-fixed .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.header-fixed-placeholder{
+	height: 80px;
+	display: none;
+}
+
+.header-fixed .header-limiter h1 {
+	float: left;
+	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	margin: 0;
+	padding-left: 10px;
+}
+
+.header-fixed .header-limiter a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.header-fixed .header-limiter nav {
+	font:16px Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	float: right;
+}
+
+.header-fixed .header-limiter nav a{
+	display: inline-block;
+	padding: 0 5px;
+	text-decoration:none;
+	color: #ffffff;
+	opacity: 0.9;
+}
+
+.header-fixed .header-limiter nav a:hover{
+	opacity: 1;
+}
+
+.header-fixed .header-limiter nav a.selected {
+	color: #608bd2;
+	pointer-events: none;
+	opacity: 1;
+}
+.logo {
+	float: left;
+	position: relative;
+	height: 40px;
+	width: 50px;
+}
+
+.logo::after {
+	content: "";
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background-image: url('./utils/img/pizza-logo.png');
+	background-position: center;
+	background-size: contain;
+}
+
+.currency-exchange {    
+    position: relative;
+    top: 0;
+	right: 45px;
+	cursor: pointer;
+}
+
+.currency-exchange:active::after {  	   
+	transform: scale(1.25); 
+}
+
+
+.currency-exchange::after {
+	content: "";
+	height: 35px;
+	width: 35px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background-image: url('./utils/img/currency-exchange.png');
+	background-position: center;
+	background-size: contain;
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+  
+.dropdown-content {
+	display: none;
+    position: absolute;
+    color: #dc3545;
+    background-color: #f9f9f9;
+    right: -40px;
+	font-size: 18px;
+	width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+	border: 2px solid #dc3545;	
+    border-radius: 5px;
+}
+
+.cart-count{
+	background: white;
+    color: #dc3545;
+    font-size: 15px;
+    font-weight: 900;
+    border: 1px solid #dc3545;
+    border-radius: 5px;
+    padding: 0px 5px;
+    position: relative;
+    right: 5px;
+    top: 10px;
+}
+.dropdown:hover .dropdown-content {
+	display: block;	
+}
+
+/******************************************************************/
+/**************************** Products ****************************/
+/******************************************************************/
+.item{
+	padding-left:5px;
+	padding-right:5px;
+	margin-top: 50px;
+}
+.item-card{
+	transition:0.5s;
+	cursor:pointer;
+}
+.item-card img{
+	height:150px;
+	width:100%;
+}
+.item-card-title{  
+	font-size:15px;
+	transition:1s;
+	cursor:pointer;
+}
+.item-card-title i{  
+	font-size:15px;
+	transition:1s;
+	cursor:pointer;
+	color:#ffa710
+}
+.card-content{	
+    padding: 0.5rem 1rem;
+}
+.card-title i:hover{
+	transform: scale(1.25) rotate(100deg); 
+	color:#18d4ca;
+}
+.card{	
+    margin: auto;	
+	max-width: 255px;
+}
+.card:hover{
+	transform: scale(1.05);
+	box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+}
+.card-text{
+	height:80px;  
+	font-size: 15px;
+}
+.card::before, .card::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transform: scale3d(0, 0, 1);
+	transition: transform .3s ease-out 0s;
+	background: rgba(255, 255, 255, 0.1);
+	content: '';
+	pointer-events: none;
+}
+.card::before {
+	transform-origin: left top;
+}
+.card::after {
+	transform-origin: right bottom;
+}
+.card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+	transform: scale3d(1, 1, 1);
+}
+
+.card span {
+	right: 10px;
+	position: absolute;
+	bottom: 5px;	
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+/******************************************************************/
+/**************************** Checkout ****************************/
+/******************************************************************/
+.success,
+.payment,
+.checkout{
+	background-color: #f9f9f9;	
+}
+.checkout ul {
+	font-size: 22px;
+}
+.checkout li .float-left{
+	float: none!important
+}
+.checkout li:not(:last-child){
+	margin-bottom: 10px;
+	border-bottom: 1px solid #e50e0e45;
+}
+
+/******************************************************************/
+/***************************** Helpers ****************************/
+/******************************************************************/
+.hide{
+	display: none;
+}
+.hidden{
+	opacity: 0;
+}
+.spinner-border{
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	width: 4rem!important;
+	height: 4rem!important;
+	border: 0.55em solid currentColor!important;
+    border-right-color: transparent!important;
+}
+.total {
+    margin: 10px;
+}
+.total .fa{
+    padding-right: 5px;
+}
+.list-inline-item:not(:last-child) {
+    margin-right: auto!important;
+}
+.red{	
+    cursor: pointer;
+	color: #bd2130!important;
+}
+.btn:focus, .btn.focus{	
+    box-shadow: 0 0 0 0.2rem #dc354566!important;
+}
+.btn-primary,
+.btn-primary:hover{
+	color: #fff!important;
+    background-color: #E50E0E!important;
+    border-color: #E50E0E!important;
+}
+.card .btn{
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: relative;
+}
+.link{	
+    color: #bd2130!important;
+    font-size: 1rem!important;
+    font-weight: bold!important;
+}
+.link:hover{	
+	color: #dc3545!important;
+	text-decoration: none!important;
+}
+ul{
+    margin-bottom: 0!important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.not-found {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #ffffff;
+}
+.errorMessage{
+    background-color: #f09aa3;
+    padding: 10px 20px;
+    border-radius: 10px;
+	color: #3d3d3d;
+}
+/******************************************************************/
+/************************* Meadia Queries *************************/
+/******************************************************************/
+
+@media all and (max-width: 1200px) {
+	.card span {		
+		font-size: 20px;
+	}
+}
+
+@media all and (max-width: 600px) {
+	.header-fixed {		
+		padding: 15px;
+		height: 70px;
+	}
+}
+
+@media all and (max-width: 575px) {
+	.card .card-text {		
+		display: none;
+	}
+	.card .btn{		
+		padding: 0.1rem 0.4rem;
+		font-size: 0.85rem;
+	}
+	.checkout ul {
+		font-size: 18px;
+	}
+}
+
+@media all and (max-width: 450px) {
+	.header-limiter .title {		
+		display: none;
+	}
+}

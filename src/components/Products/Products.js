@@ -6,7 +6,6 @@ import Card from './Card'
 import axios from 'axios'
 
 const Products = () => {  
-    const { state, setHeader } = useContext(Context)
     const [pizzas, setPizzas] = useState([]);
     const [loading, setLoading] = useState(false);
     
@@ -21,13 +20,12 @@ const Products = () => {
         }
     };
     
-    useEffect(() => {        
-        setHeader(true)
+    useEffect(() => {    
         feedPizzas();
     }, []);    
     
     return (
-        <div className="container mt-5">
+        <div className="container products">
             {loading ? <Loading /> : <Card pizzas={pizzas}/> }
         </div>
    );

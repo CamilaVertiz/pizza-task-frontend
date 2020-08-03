@@ -1,14 +1,10 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../../context/Provider'
 import { Link } from 'react-router-dom'
-import Cart from '../Cart/Cart'
+import CheckoutCart from '../Cart/CheckoutCart'
 
 const Checkout = () => {        
-    const { setHeader } = useContext(Context)
-
-    useEffect(() => {
-        setHeader(false)
-    }, []);
+    const { state } = useContext(Context)
 
     return (
         <div className="container checkout mt-5">       
@@ -16,8 +12,14 @@ const Checkout = () => {
               <div className=" form-group col-md-12">      
                 <Link to="/" className="link"> <i className="fa fa-arrow-left" aria-hidden="true"></i> Back To Store</Link>
                 <h3 className="title mt-2 mb-5">Order Details</h3>
-                <Cart />
-                <Link to="/payment" className="btn btn-primary btn-block mt-4"> Proceed <i className="fa fa-arrow-right" aria-hidden="true"></i></Link> 
+                {state.cart.length > 0 ?
+                   <span>
+                     <CheckoutCart />
+                     <Link to="/payment" className="btn btn-primary btn-block mt-4"> Confirm <i className="fa fa-arrow-right" aria-hidden="true"></i></Link> 
+                   </span>
+                :                
+                   <Link to="/" className="btn btn-primary btn-block mt-4"><i className="fa fa-arrow-left" aria-hidden="true"></i> Go Back </Link> 
+                }
               </div>
           </div> 
         </div>

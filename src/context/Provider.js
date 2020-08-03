@@ -3,9 +3,8 @@ import { useLocalStorage } from '../utils/useLocalStorage'
 
 export const InitialState = {
     currency: { type: 'usd', conversion: 1, shipping: 0 },
-    shippingFixed: 6.50,
+    shippingFixed: 0,
     cart: [],
-    header: true,
 }
 
 export const Context = React.createContext();
@@ -25,12 +24,12 @@ export const Context = React.createContext();
             currency,
         })}
 
-        const setHeader = (header) => {
+        const setShippingFixed = (shippingFixed) => {
             setState({
             ...state,
-            header,
+            shippingFixed,
         })}
-        
+
         let quantity = state.cart.reduce(function(prev, current) {
             return prev + current.qty
         }, 0);
@@ -45,10 +44,10 @@ export const Context = React.createContext();
                 shipping = (state.shippingFixed * state.currency.conversion).toFixed(2);
 
             setCurrency({ ...state.currency, shipping})
-        }, [state.cart]);    
+        }, [state.cart, state.shippingFixed]);    
         
         return (
-            <Context.Provider value={{ state, setCurrency, setCart, setHeader, total, quantity}}>
+            <Context.Provider value={{ state, setCurrency, setCart, setShippingFixed, total, quantity}}>
             {props.children}
             </Context.Provider>
         )

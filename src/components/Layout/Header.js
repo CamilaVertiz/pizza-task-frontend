@@ -20,7 +20,6 @@ const Header = () => {
         }       
     }
     return (
-        <div className="header">
             <header className="header-fixed">
                 <div className="header-limiter">
                     <a href="/"><span className="logo"></span> <h1 className="title">Pizza Task</h1></a> 
@@ -43,9 +42,6 @@ const Header = () => {
                     </nav>
                 </div>
             </header>
-
-            <div className="header-fixed-placeholder"></div>
-        </div>
    );
 }
 

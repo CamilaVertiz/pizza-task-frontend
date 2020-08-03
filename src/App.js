@@ -1,6 +1,7 @@
 import React from 'react'
 import NotFound from './utils/NotFound'
 import Header from './components/Layout/Header'
+import Footer from './components/Layout/Footer'
 import Products from './components/Products/Products'
 import Checkout from './components/Checkout/Checkout'
 import Payment from './components/Checkout/Payment'
@@ -20,6 +21,7 @@ function App() {
               <Route path="/payment" component={Payment} />
               <Route component={NotFound} />
             </Switch>
+            <Footer />
           </div>
       </Router>
     </Provider>

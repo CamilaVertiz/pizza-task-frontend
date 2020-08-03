@@ -193,6 +193,9 @@ body.fixed .header-fixed .header-limiter nav {
 /******************************************************************/
 /**************************** Products ****************************/
 /******************************************************************/
+.products{
+	margin-bottom: 100px;
+}
 .item{
 	padding-left:5px;
 	padding-right:5px;
@@ -273,7 +276,8 @@ body.fixed .header-fixed .header-limiter nav {
 .success,
 .payment,
 .checkout{
-	background-color: #f9f9f9;	
+	background-color: #f9f9f9;		
+    margin-bottom: 100px;
 }
 .checkout ul {
 	font-size: 22px;
@@ -286,6 +290,59 @@ body.fixed .header-fixed .header-limiter nav {
 	border-bottom: 1px solid #e50e0e45;
 }
 
+
+.payment table,
+.checkout table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: fixed;
+}
+  
+.payment table tr,
+.checkout table tr {
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+	padding: .35em;
+}
+
+
+.payment table th,
+.payment table td,
+.checkout table th,
+.checkout table td {
+	padding: .625em;
+	text-align: center;
+}
+  
+.checkout table th {
+	font-size: .85em;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+}
+.checkout table .delete{
+	width: 45px;
+}
+.checkout table td input{
+	width: 45px;
+    text-align: center;
+}
+.checkout table .item td small{
+	padding: 0 20px 
+}
+.payment table .total,
+.checkout table .total{
+	font-weight: bold;
+}
+.payment table .quantity,
+.checkout table .quantity{
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 8px;
+}
 /******************************************************************/
 /***************************** Helpers ****************************/
 /******************************************************************/
@@ -365,6 +422,26 @@ input[type=number] {
     border-radius: 10px;
 	color: #3d3d3d;
 }
+
+/******************************************************************/
+/***************************** Footer *****************************/
+/******************************************************************/
+footer{
+	 background-color: #E50E0E;
+	 color: #fff;
+	 text-align: center;
+	 padding: 10px 0;
+}
+footer a,
+footer a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+footer a:hover{
+	color: #cecece;
+}
+
+  
 /******************************************************************/
 /************************* Meadia Queries *************************/
 /******************************************************************/
@@ -375,10 +452,64 @@ input[type=number] {
 	}
 }
 
-@media all and (max-width: 600px) {
+@media screen and (max-width: 767px) {
+	.checkout table .quantity{
+		padding: 0;
+		border: 0px;
+		border-radius: none;
+	}
+	.checkout table .item td small,
+	.checkout table th, .checkout table td{
+		padding: 0;
+	}
+}
+@media screen and (max-width: 600px) {
 	.header-fixed {		
 		padding: 15px;
 		height: 70px;
+	}
+	
+	table {
+	  border: 0;
+	}
+	
+	table thead {
+	  border: none;
+	  clip: rect(0 0 0 0);
+	  height: 1px;
+	  margin: -1px;
+	  overflow: hidden;
+	  padding: 0;
+	  position: absolute;
+	  width: 1px;
+	}
+	
+	table tr {
+	  border-bottom: 3px solid #ddd;
+	  display: block;
+	  margin-bottom: .625em;
+	}
+	
+	table td {
+	  border-bottom: 1px solid #ddd;
+	  display: block;
+	  font-size: .8em;
+	  text-align: right;
+	}
+	
+	table td::before {
+	  /*
+	  * aria-label has no advantage, it won't be read inside a table
+	  content: attr(aria-label);
+	  */
+	  content: attr(data-label);
+	  float: left;
+	  font-weight: bold;
+	  text-transform: uppercase;
+	}
+	
+	table td:last-child {
+	  border-bottom: 0;
 	}
 }
 

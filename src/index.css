@@ -565,9 +565,6 @@ footer a:hover{
 }
 
 @media all and (max-width: 575px) {
-	.card .card-text {		
-		display: none;
-	}
 	.card .btn{		
 		padding: 0.1rem 0.4rem;
 		font-size: 0.85rem;

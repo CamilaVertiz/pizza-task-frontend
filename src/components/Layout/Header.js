@@ -34,7 +34,7 @@ const Header = () => {
                                     <span className="cart-count">{ quantity }</span>
                                     <div className={`dropdown-content ${state.cart.length > 0 ? "" : "hidden"}`}>
                                         <Cart />
-                                        <Link to="/checkout" className="link">checkout  <i className="fa fa-arrow-right" aria-hidden="true"></i></Link>
+                                        <Link to="/checkout" className="btn btn-primary">Checkout  <i className="fa fa-arrow-right" aria-hidden="true"></i></Link>
                                     </div>
                                 </span>     
                             </span>

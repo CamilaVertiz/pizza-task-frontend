@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../../context/Provider'
 import url from '../../utils/url'
+import Cart from '../Cart/Cart'
 
 const CheckoutCart =  () => { 
     const { state, setCart, total } = useContext(Context)
@@ -40,30 +41,42 @@ const CheckoutCart =  () => {
             setCart(cart)
         }
     }
-
+    
     return (   
-        <table>
-            <tbody>
-               {state.cart.map((cart, index)=>(
-                    <tr key={cart.id} data-testid={`cart${index}`}  className="item">
-                        <td scope="row" className="delete"><i className="fa fa-trash red" aria-hidden="true" onClick={() => deletefromCart(cart)}></i> </td>
-                        <td> <img className="img-fluid" src={`${url}` + '/' + cart.image} /></td>
-                        <td className="text-left">{cart.title}</td> 
-                        <td className="text-right"><small><i className={`fa fa-${state.currency.type}`} aria-hidden="true"/> {cart.price} </small></td>
-                        <td className="text-center"><i data-testid={`removeButton${index}`} className="fa fa-minus red" aria-hidden="true" onClick={() => removefromCart(cart)}></i> <span className="quantity">{cart.qty}</span> <i data-testid={`addButton${index}`} className="fa fa-plus red" aria-hidden="true" onClick={() => addfromCart(cart)}></i></td>
-                        <td className="total"><i className={`fa fa-${state.currency.type}`} aria-hidden="true"/> {((cart.price * state.currency.conversion) * cart.qty ).toFixed(2)} </td>
+        <div>
+            <table>
+                <tbody>
+                {state.cart.map((cart, index)=>(
+                        <tr key={cart.id} data-testid={`cart${index}`}  className="item">
+                            <td scope="row" className="delete"><i className="fa fa-trash red" aria-hidden="true" onClick={() => deletefromCart(cart)}></i> </td>
+                            <td> <img className="img-fluid" src={`${url}` + '/' + cart.image} /></td>
+                            <td className="text-left">{cart.title} <span>(x{cart.qty})</span></td> 
+                            <td className="text-right"><small><i className={`fa fa-${state.currency.type}`} aria-hidden="true"/> {cart.price} </small></td>
+                            <td className="text-center"><i data-testid={`removeButton${index}`} className="fa fa-minus red" aria-hidden="true" onClick={() => removefromCart(cart)}></i> <span className="quantity">{cart.qty}</span> <i data-testid={`addButton${index}`} className="fa fa-plus red" aria-hidden="true" onClick={() => addfromCart(cart)}></i></td>
+                            <td className="total"><i className={`fa fa-${state.currency.type}`} aria-hidden="true"/> {((cart.price * state.currency.conversion) * cart.qty ).toFixed(2)} </td>
+                        </tr>
+                    ))}                     
+                    <tr className="shipping">                    
+                        <td scope="row"></td>
+                        <td ></td>
+                        <td ></td>
+                        <td className="total text-right"><small>Shipping</small> </td>
+                        <td ></td>
+                        <td className="total"><i className={`fa fa-${state.currency.type}`} aria-hidden="true"/><small className="quantity">{ state.currency.shipping }</small></td>
                     </tr>
-                ))} 
-                <tr className="total-amount">
-                    <td scope="row"></td>
-                    <td ></td>
-                    <td ></td>
-                    <td ></td>
-                    <td className="total text-right">Total </td>
-                    <td className="total"><i className={`fa fa-${state.currency.type}`} aria-hidden="true"/>{ total }</td>
-                </tr>
-            </tbody>
-        </table>
+                    <tr className="total-amount">
+                        <td scope="row"></td>
+                        <td ></td>
+                        <td ></td>
+                        <td className="total text-right">Total </td>
+                        <td ></td>
+                        <td className="total"><i className={`fa fa-${state.currency.type}`} aria-hidden="true"/>{ total }</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <Cart />
+        </div>
    );
 }
 

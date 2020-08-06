@@ -218,6 +218,8 @@ body.fixed .header-fixed .header-limiter nav {
 .item-card img{
 	height:150px;
 	width:100%;
+    -webkit-border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0px 0px;
 }
 .item-card-title{  
 	font-size:15px;
